@@ -17,6 +17,8 @@ positional arguments:
 
 optional arguments:
   -p PASSWORD, --password PASSWORD  Optional decryption password
+  --csv                 Output CSV format
+  --check               Check decryption password
 ```
 
 Example:
