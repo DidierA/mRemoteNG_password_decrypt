@@ -19,6 +19,9 @@ optional arguments:
   -p PASSWORD, --password PASSWORD  Optional decryption password
   --csv                 Output CSV format
   --check               Check decryption password
+  --all                 Dump all entries. By default only entries with
+                        password are dumped.
+
 ```
 
 Example:

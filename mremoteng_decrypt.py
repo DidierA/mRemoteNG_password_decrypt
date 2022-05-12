@@ -62,6 +62,7 @@ parser.add_argument('config_file', type=str, help='mRemoteNG XML configuration f
 parser.add_argument('-p', '--password', type=str, default='mR3m', help='Optional decryption password')
 parser.add_argument('--csv',    default=False, action='store_true', help ='Output CSV format')
 parser.add_argument('--check',  default=False, action='store_true', help='Check decryption password')
+parser.add_argument('--all',    default=False, action='store_true', help='Dump all entries. By default only entries with password are dumped.')
 args = parser.parse_args()
 
 with open(args.config_file, 'r') as f:
@@ -108,5 +109,8 @@ for node in nodes:
     password=""
     if data != b'':
         password=decrypt(mode, data, args.password.encode())
+    
+    if not password and not args.all:
+        continue
 
     print_output(name, hostname, username, password)
